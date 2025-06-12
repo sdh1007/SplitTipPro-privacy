@@ -13,133 +13,290 @@
         
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-            line-height: 1.6;
-            color: #333;
-            background-color: #f8f9fa;
+            line-height: 1.7;
+            color: #2c3e50;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
             padding: 20px;
         }
         
         .container {
-            max-width: 800px;
+            max-width: 900px;
             margin: 0 auto;
-            background: white;
-            padding: 40px;
-            border-radius: 10px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 60px;
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .header {
+            text-align: center;
+            margin-bottom: 50px;
+            position: relative;
+        }
+        
+        .header::after {
+            content: '';
+            position: absolute;
+            bottom: -20px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 3px;
+            background: linear-gradient(90deg, #667eea, #764ba2);
+            border-radius: 2px;
         }
         
         h1 {
             color: #2c3e50;
-            margin-bottom: 10px;
-            font-size: 2.5em;
-            text-align: center;
+            margin-bottom: 15px;
+            font-size: 3em;
+            font-weight: 700;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
         }
         
         .subtitle {
-            text-align: center;
             color: #7f8c8d;
-            margin-bottom: 30px;
-            font-size: 1.1em;
+            font-size: 1.3em;
+            font-weight: 300;
+            letter-spacing: 1px;
+        }
+        
+        .app-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            border-radius: 20px;
+            margin: 0 auto 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2em;
+            color: white;
+            font-weight: bold;
+            box-shadow: 0 10px 20px rgba(102, 126, 234, 0.3);
         }
         
         h2 {
-            color: #34495e;
-            margin-top: 30px;
-            margin-bottom: 15px;
-            font-size: 1.5em;
-            border-bottom: 2px solid #3498db;
-            padding-bottom: 5px;
+            color: #2c3e50;
+            margin-top: 40px;
+            margin-bottom: 20px;
+            font-size: 1.6em;
+            font-weight: 600;
+            position: relative;
+            padding-left: 25px;
+        }
+        
+        h2::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 4px;
+            height: 25px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            border-radius: 2px;
         }
         
         p {
-            margin-bottom: 15px;
-            text-align: justify;
+            margin-bottom: 18px;
+            font-size: 1.05em;
+            color: #34495e;
+            line-height: 1.8;
         }
         
         ul {
-            margin-left: 20px;
-            margin-bottom: 15px;
+            margin-left: 30px;
+            margin-bottom: 20px;
         }
         
         li {
-            margin-bottom: 8px;
+            margin-bottom: 12px;
+            color: #34495e;
+            font-size: 1.05em;
+            position: relative;
+        }
+        
+        li::marker {
+            color: #667eea;
+        }
+        
+        .highlight-box {
+            background: linear-gradient(135deg, rgba(102, 126, 234, 0.1), rgba(118, 75, 162, 0.1));
+            border-left: 4px solid #667eea;
+            padding: 25px;
+            margin: 25px 0;
+            border-radius: 0 10px 10px 0;
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.1);
         }
         
         .contact-info {
-            background-color: #ecf0f1;
-            padding: 20px;
-            border-radius: 5px;
-            margin-top: 30px;
+            background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+            padding: 30px;
+            border-radius: 15px;
+            margin-top: 40px;
+            border: 1px solid rgba(102, 126, 234, 0.2);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .contact-info::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #667eea, #764ba2);
+        }
+        
+        .contact-info h3 {
+            color: #2c3e50;
+            margin-bottom: 15px;
+            font-size: 1.3em;
         }
         
         .last-updated {
             text-align: center;
             color: #7f8c8d;
             font-style: italic;
-            margin-top: 30px;
-            padding-top: 20px;
-            border-top: 1px solid #bdc3c7;
+            margin-top: 40px;
+            padding-top: 30px;
+            border-top: 2px solid rgba(102, 126, 234, 0.2);
+            font-size: 0.95em;
         }
         
         a {
-            color: #3498db;
+            color: #667eea;
             text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
         }
         
         a:hover {
+            color: #764ba2;
             text-decoration: underline;
+        }
+        
+        .section {
+            margin-bottom: 35px;
+        }
+        
+        @media (max-width: 768px) {
+            .container {
+                padding: 40px 30px;
+                margin: 10px;
+            }
+            
+            h1 {
+                font-size: 2.2em;
+            }
+            
+            .subtitle {
+                font-size: 1.1em;
+            }
+            
+            .app-icon {
+                width: 60px;
+                height: 60px;
+                font-size: 1.5em;
+            }
+        }
+        
+        .privacy-badge {
+            display: inline-block;
+            background: linear-gradient(135deg, #27ae60, #2ecc71);
+            color: white;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 0.9em;
+            font-weight: 600;
+            margin: 10px 0;
+            box-shadow: 0 4px 8px rgba(39, 174, 96, 0.3);
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <h1>Privacy Policy</h1>
-        <p class="subtitle">SplitTip Pro</p>
-        
-        <p>This Privacy Policy describes how SplitTip Pro ("we," "our," or "us") collects, uses, and protects your information when you use our mobile application.</p>
-        
-        <h2>Information We Collect</h2>
-        <p>SplitTip Pro is designed with privacy in mind. We do not collect, store, or transmit any personal information from our users. All calculations and data entry are processed locally on your device.</p>
-        
-        <p>Specifically, we do not collect:</p>
-        <ul>
-            <li>Personal identification information (names, email addresses, phone numbers)</li>
-            <li>Location data</li>
-            <li>Usage analytics or tracking data</li>
-            <li>Financial information or transaction details</li>
-            <li>Device identifiers or advertising IDs</li>
-        </ul>
-        
-        <h2>How We Use Information</h2>
-        <p>Since we do not collect any personal information, we do not use, process, or analyze any user data. All tip calculations and bill splitting functionality occurs entirely on your device.</p>
-        
-        <h2>Data Sharing</h2>
-        <p>We do not share, sell, trade, or transfer any information to third parties because we do not collect any information in the first place.</p>
-        
-        <h2>Data Storage</h2>
-        <p>Any data you enter into SplitTip Pro (such as bill amounts or tip percentages) is stored locally on your device only. This information is not transmitted to our servers or any third-party services.</p>
-        
-        <h2>Third-Party Services</h2>
-        <p>SplitTip Pro does not integrate with or use any third-party services that would collect or process your personal information.</p>
-        
-        <h2>Children's Privacy</h2>
-        <p>Our app does not collect any information from anyone, including children under the age of 13. Since we do not collect personal information, we comply with the Children's Online Privacy Protection Act (COPPA).</p>
-        
-        <h2>Security</h2>
-        <p>Since we do not collect or store any personal information on our servers, there is no risk of your personal data being compromised through our systems. All app functionality is contained within your device.</p>
-        
-        <h2>Changes to This Privacy Policy</h2>
-        <p>We may update our Privacy Policy from time to time. Any changes will be posted on this page with an updated revision date. We encourage you to review this Privacy Policy periodically for any changes.</p>
-        
-        <h2>Contact Us</h2>
-        <div class="contact-info">
-            <p>If you have any questions about this Privacy Policy or our practices, please contact us at:</p>
-            <p><strong>Email:</strong> scottdhardy238@gmail.com</p>
-            <p><strong>App:</strong> SplitTip Pro</p>
+        <div class="header">
+            <div class="app-icon">ST</div>
+            <h1>Privacy Policy</h1>
+            <p class="subtitle">SplitTip Pro</p>
+            <div class="privacy-badge">🔒 Privacy First</div>
         </div>
         
+        <div class="highlight-box">
+            <p><strong>Privacy Promise:</strong> SplitTip Pro is designed with privacy in mind. We do not collect, store, or transmit any personal information from our users. All calculations and data entry are processed locally on your device.</p>
+        </div>
+        
+        <div class="section">
+            <h2>Information We Collect</h2>
+            <p>SplitTip Pro operates with a zero-data-collection policy. Your privacy is our priority, and we've built our app to function entirely on your device without requiring any personal information.</p>
+            
+            <p>Specifically, we do not collect:</p>
+            <ul>
+                <li>Personal identification information (names, email addresses, phone numbers)</li>
+                <li>Location data or GPS coordinates</li>
+                <li>Usage analytics or behavioral tracking data</li>
+                <li>Financial information or transaction details</li>
+                <li>Device identifiers or advertising IDs</li>
+                <li>Contact lists or social media connections</li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <h2>How We Use Information</h2>
+            <p>Since we do not collect any personal information, we do not use, process, or analyze any user data. All tip calculations, bill splitting functionality, and app preferences are handled entirely on your device without any external communication.</p>
+        </div>
+
+        <div class="section">
+            <h2>Data Sharing</h2>
+            <p>We do not share, sell, trade, or transfer any information to third parties because we do not collect any information in the first place. Your calculations and usage patterns remain completely private to you.</p>
+        </div>
+
+        <div class="section">
+            <h2>Data Storage</h2>
+            <p>Any data you enter into SplitTip Pro (such as bill amounts, tip percentages, or custom settings) is stored locally on your device only. This information never leaves your device and is not transmitted to our servers or any third-party services.</p>
+        </div>
+
+        <div class="section">
+            <h2>Third-Party Services</h2>
+            <p>SplitTip Pro operates as a standalone application and does not integrate with or use any third-party services that would collect or process your personal information. We maintain full control over our app's functionality to ensure your privacy.</p>
+        </div>
+
+        <div class="section">
+            <h2>Children's Privacy</h2>
+            <p>Our app does not collect any information from anyone, including children under the age of 13. Since we do not collect personal information, we comply with the Children's Online Privacy Protection Act (COPPA) and similar international privacy regulations.</p>
+        </div>
+
+        <div class="section">
+            <h2>Security</h2>
+            <p>Since we do not collect or store any personal information on our servers, there is no risk of your personal data being compromised through our systems. All app functionality is contained within your device, providing the highest level of security for your privacy.</p>
+        </div>
+
+        <div class="section">
+            <h2>Changes to This Privacy Policy</h2>
+            <p>We may update our Privacy Policy from time to time to reflect changes in our practices or for legal compliance. Any changes will be posted on this page with an updated revision date. We encourage you to review this Privacy Policy periodically.</p>
+        </div>
+
+        <div class="contact-info">
+            <h3>Contact Us</h3>
+            <p>If you have any questions about this Privacy Policy, our privacy practices, or our app, please don't hesitate to contact us:</p>
+            <p><strong>Email:</strong> scottdhardy238@gmail.com</p>
+            <p><strong>App:</strong> SplitTip Pro</p>
+            <p><strong>Response Time:</strong> We typically respond within 24-48 hours</p>
+        </div>
+
         <div class="last-updated">
             <p>Last updated: June 12, 2025</p>
+            <p>Effective date: June 12, 2025</p>
         </div>
     </div>
 </body>
