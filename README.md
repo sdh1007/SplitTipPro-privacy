@@ -1,0 +1,1 @@
+# SplitTipPro-privacy
