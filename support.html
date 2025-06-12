@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Support - SplitTip Pro</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.7;
+            color: #2c3e50;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 60px;
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .header {
+            text-align: center;
+            margin-bottom: 50px;
+            position: relative;
+        }
+        
+        .header::after {
+            content: '';
+            position: absolute;
+            bottom: -20px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 3px;
+            background: linear-gradient(90deg, #667eea, #764ba2);
+            border-radius: 2px;
+        }
+        
+        h1 {
+            color: #2c3e50;
+            margin-bottom: 15px;
+            font-size: 3em;
+            font-weight: 700;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .subtitle {
+            color: #7f8c8d;
+            font-size: 1.3em;
+            font-weight: 300;
+            letter-spacing: 1px;
+        }
+        
+        .app-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            border-radius: 20px;
+            margin: 0 auto 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2em;
+            color: white;
+            font-weight: bold;
+            box-shadow: 0 10px 20px rgba(102, 126, 234, 0.3);
+        }
+        
+        h2 {
+            color: #2c3e50;
+            margin-top: 40px;
+            margin-bottom: 20px;
+            font-size: 1.6em;
+            font-weight: 600;
+            position: relative;
+            padding-left: 25px;
+        }
+        
+        h2::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 4px;
+            height: 25px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            border-radius: 2px;
+        }
+        
+        p {
+            margin-bottom: 18px;
+            font-size: 1.05em;
+            color: #34495e;
+            line-height: 1.8;
+        }
+        
+        .faq-item {
+            background: rgba(102, 126, 234, 0.05);
+            border-left: 4px solid #667eea;
+            padding: 25px;
+            margin: 20px 0;
+            border-radius: 0 10px 10px 0;
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.1);
+        }
+        
+        .faq-question {
+            font-weight: 600;
+            color: #2c3e50;
+            margin-bottom: 10px;
+            font-size: 1.1em;
+        }
+        
+        .faq-answer {
+            color: #34495e;
+            margin-bottom: 0;
+        }
+        
+        .contact-section {
+            background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+            padding: 40px;
+            border-radius: 15px;
+            margin: 40px 0;
+            border: 1px solid rgba(102, 126, 234, 0.2);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .contact-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #667eea, #764ba2);
+        }
+        
+        .contact-methods {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+        
+        .contact-method {
+            background: white;
+            padding: 25px;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+        
+        .contact-method:hover {
+            transform: translateY(-5px);
+        }
+        
+        .contact-icon {
+            font-size: 2em;
+            margin-bottom: 15px;
+            display: block;
+        }
+        
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+            margin: 30px 0;
+        }
+        
+        .feature-card {
+            background: white;
+            padding: 25px;
+            border-radius: 15px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            border-top: 4px solid #667eea;
+            transition: transform 0.3s ease;
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .feature-icon {
+            font-size: 2.5em;
+            margin-bottom: 15px;
+            display: block;
+        }
+        
+        .feature-title {
+            font-size: 1.2em;
+            font-weight: 600;
+            color: #2c3e50;
+            margin-bottom: 10px;
+        }
+        
+        .support-badge {
+            display: inline-block;
+            background: linear-gradient(135deg, #e74c3c, #c0392b);
+            color: white;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 0.9em;
+            font-weight: 600;
+            margin: 10px 0;
+            box-shadow: 0 4px 8px rgba(231, 76, 60, 0.3);
+        }
+        
+        .last-updated {
+            text-align: center;
+            color: #7f8c8d;
+            font-style: italic;
+            margin-top: 40px;
+            padding-top: 30px;
+            border-top: 2px solid rgba(102, 126, 234, 0.2);
+            font-size: 0.95em;
+        }
+        
+        a {
+            color: #667eea;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+        
+        a:hover {
+            color: #764ba2;
+            text-decoration: underline;
+        }
+        
+        .section {
+            margin-bottom: 35px;
+        }
+        
+        @media (max-width: 768px) {
+            .container {
+                padding: 40px 30px;
+                margin: 10px;
+            }
+            
+            h1 {
+                font-size: 2.2em;
+            }
+            
+            .subtitle {
+                font-size: 1.1em;
+            }
+            
+            .app-icon {
+                width: 60px;
+                height: 60px;
+                font-size: 1.5em;
+            }
+            
+            .contact-methods {
+                grid-template-columns: 1fr;
+            }
+            
+            .feature-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="app-icon">ST</div>
+            <h1>Support Center</h1>
+            <p class="subtitle">SplitTip Pro</p>
+            <div class="support-badge">💬 We're Here to Help</div>
+        </div>
+        
+        <div class="section">
+            <h2>App Features</h2>
+            <p>SplitTip Pro makes bill splitting and tip calculation effortless. Here's what our app can do for you:</p>
+            
+            <div class="feature-grid">
+                <div class="feature-card">
+                    <span class="feature-icon">🧮</span>
+                    <div class="feature-title">Smart Calculations</div>
+                    <p>Automatically calculate tips and split bills among any number of people with precision.</p>
+                </div>
+                <div class="feature-card">
+                    <span class="feature-icon">👥</span>
+                    <div class="feature-title">Group Splitting</div>
+                    <p>Easily divide bills among friends, family, or colleagues with customizable split options.</p>
+                </div>
+                <div class="feature-card">
+                    <span class="feature-icon">💰</span>
+                    <div class="feature-title">Tip Calculator</div>
+                    <p>Calculate appropriate tips with preset percentages or custom amounts.</p>
+                </div>
+                <div class="feature-card">
+                    <span class="feature-icon">🔒</span>
+                    <div class="feature-title">Privacy First</div>
+                    <p>All calculations happen on your device - no data collection or internet required.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>Frequently Asked Questions</h2>
+            
+            <div class="faq-item">
+                <div class="faq-question">How do I split a bill among multiple people?</div>
+                <div class="faq-answer">Enter your total bill amount, select the number of people, choose your tip percentage, and SplitTip Pro will automatically calculate each person's share including tip.</div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">Can I use custom tip percentages?</div>
+                <div class="faq-answer">Yes! While we provide common tip percentages (15%, 18%, 20%), you can enter any custom percentage or dollar amount that works for your situation.</div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">Does the app require internet connection?</div>
+                <div class="faq-answer">No, SplitTip Pro works completely offline. All calculations are performed locally on your device for maximum privacy and reliability.</div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">Is my data secure and private?</div>
+                <div class="faq-answer">Absolutely! We don't collect, store, or transmit any of your personal information. Everything stays on your device. Check our <a href="./index.html">Privacy Policy</a> for full details.</div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">What if I need to calculate tax separately?</div>
+                <div class="faq-answer">You can either include tax in your total bill amount, or calculate the tip on the pre-tax amount - whichever method you prefer for your situation.</div>
+            </div>
+        </div>
+
+        <div class="contact-section">
+            <h2 style="margin-top: 0; padding-left: 0;">Contact Support</h2>
+            <p>Need help? Have a suggestion? We'd love to hear from you! Our support team typically responds within 24-48 hours.</p>
+            
+            <div class="contact-methods">
+                <div class="contact-method">
+                    <span class="contact-icon">📧</span>
+                    <h3>Email Support</h3>
+                    <p><strong>[YOUR-EMAIL@example.com]</strong></p>
+                    <p>For technical issues, feature requests, or general questions</p>
+                </div>
+                
+                <div class="contact-method">
+                    <span class="contact-icon">⭐</span>
+                    <h3>App Store Review</h3>
+                    <p>Love the app? Leave us a review on the App Store to help other users discover SplitTip Pro!</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>Troubleshooting</h2>
+            
+            <div class="faq-item">
+                <div class="faq-question">The app isn't calculating correctly</div>
+                <div class="faq-answer">Please check that you've entered the bill amount and number of people correctly. If the issue persists, try restarting the app or contact our support team.</div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">App crashes or won't open</div>
+                <div class="faq-answer">Try force-closing the app and reopening it. If problems continue, restart your device. For persistent issues, please contact support with your device model and iOS version.</div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>App Version & Updates</h2>
+            <p>We regularly update SplitTip Pro to improve performance and add new features. Make sure you have the latest version installed from the App Store to enjoy the best experience.</p>
+            
+            <p>Current features include:</p>
+            <ul style="margin-left: 30px; color: #34495e;">
+                <li>Bill splitting for 2-50+ people</li>
+                <li>Custom and preset tip percentages</li>
+                <li>Clean, intuitive interface</li>
+                <li>Offline functionality</li>
+                <li>No ads or data collection</li>
+            </ul>
+        </div>
+
+        <div class="last-updated">
+            <p>Last updated: June 12, 2025</p>
+            <p>Support page version 1.0</p>
+        </div>
+    </div>
+</body>
+</html>
